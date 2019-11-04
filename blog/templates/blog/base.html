@@ -1,14 +1,50 @@
 {% load staticfiles %}
 <html>
+<style>
+    .button {
+        font: bold 11px Arial;
+        text-decoration: none;
+        background-color: #EEEEEE;
+        color: #333333;
+        padding: 2px 6px 2px 6px;
+        border-top: 1px solid #CCCCCC;
+        border-right: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        border-left: 1px solid #CCCCCC;
+    }
+    
+    .post_title:link, .post_title:visited {
+        background-color: #f44336;
+        color: white;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .post_title:hover, .post_title:active {
+        background-color: red;
+    }
+
+    .title {
+       text-decoration: none; 
+    }
+
+    .title:hover {
+        text-decoration: underline;
+    }
+
+        
+</style>
     <head>
         <title>My blog</title>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
         <div>
-            <h1><a href="/">My Blog</a></h1>
+            <h1><a style="color: black; text-decoration: none;" href="/">My Blog</a></h1>
             {% if user.is_authenticated %}
-                <div><a href="{% url 'post_new' %}" >Add post</a></div>
+                <div><a class="post_title" href="{% url 'post_new' %}" >Add post</a></div>
             {% endif %}
         </div>
 
